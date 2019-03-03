@@ -2,7 +2,7 @@
 from os import system
 from sys import argv
 
-def main():
+def test():
     if len(argv) != 3 and not argv[1].isdigit() and not argv[2].isdigit():
         print('./test.py <N> <M>')
         print('N - Number of Threads')
@@ -11,7 +11,7 @@ def main():
     assert make == 0, 'FAIL: Make exited with code ' + str(make)
     program = system('./program ' + argv[1] + ' ' + argv[2] + ' > out.txt')
     assert program == 0, 'FAIL: program exited with ' + str(program)
-    
+
     with open('out.txt') as output:
         for line, i in zip(output, range(int(argv[2]))):
             ticket = int(line.split()[0])
@@ -23,4 +23,7 @@ def main():
     print('PASS')
 
 if __name__ == "__main__":
-    main()
+    try:
+        test()
+    except Exception as e:
+        print(e.message)
