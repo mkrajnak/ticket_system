@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python
 from os import system
 from sys import argv
 
@@ -10,9 +10,9 @@ def test():
     make = system('make > /dev/null')
     assert make == 0, 'FAIL: Make exited with code ' + str(make)
     program = system('./program ' + argv[1] + ' ' + argv[2] + ' > out.txt')
-    assert program == 0, 'FAIL: program exited with ' + str(program)
+    assert program == 0, 'FAIL: program exited with code' + str(program)
 
-    with open('out.txt') as output:
+    with open('out.txt', 'r') as output:
         for line, i in zip(output, range(int(argv[2]))):
             ticket = int(line.split()[0])
             thread = int(line.split()[1].strip('(').strip(')'))
