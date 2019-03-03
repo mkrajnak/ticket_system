@@ -7,7 +7,7 @@ test:
 	python test.py 2000 100
 
 zip:
-	zip -r xkrajn02.zip Makefile ticket.c
+	zip  xkrajn02.zip Makefile ticket.c
 
 clean:
-		rm program out.txt xkrajn02.zip
+		rm -f program out.txt xkrajn02.zip
