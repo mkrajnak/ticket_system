@@ -10,4 +10,4 @@ zip:
 	zip -r xkrajn02.zip Makefile ticket.c
 
 clean:
-		rm program out.txt
+		rm program out.txt xkrajn02.zip
