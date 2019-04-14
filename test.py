@@ -18,7 +18,7 @@ def test():
             ticket = int(line.split()[0])
             thread = int(line.split()[1].strip('(').strip(')'))
             assert i == ticket, 'Synchronization fail, expected ' + str(i)
-            assert thread < int(argv[2]), \
+            assert thread < int(argv[1]), \
                 'Ticked obtained by weird thread ' + str(thread)
 
     print('PASS')
